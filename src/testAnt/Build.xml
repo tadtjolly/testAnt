@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<target name="clear">
+		<delete dir="build"></delete>
+	</target>
+	
+	<target name="compile">
+		<mkdir dir="build/classes"></mkdir>
+		<javac srcdir="." destdir="build/classes"></javac>
+	</target>
+	
+	<target name="jar">
+		<mkdir dir="build/jar"></mkdir>
+		<jar destfile="build/jar/Hello.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="testAnt.Hello"></attribute>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="run">
+		<java jar="build/jar/Hello.jar" fork="true"></java>
+	</target>
+</project>
